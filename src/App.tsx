@@ -187,8 +187,10 @@ function App() {
       </div >
       <footer className="footer">
         <div id='#section-contact' className="footer-bottom text-center py-5">
-          <span>Contatos</span>
-
+          <div className="d-flex flex-column">
+            <span className='my-2'>Contatos</span>
+            <a href="mailto:damatematicaufrpe@gmail.com" className="email">damatematicaufrpe@gmail.com</a>
+          </div>
           <ul className="social-list list-unstyled pb-4 mb-0 mt-2">
             {/* <li className="list-inline-item"><a href="#"><FontAwesomeIcon icon={faGithub} className="fab fa-fw" /></a></li> */}
             {/* <li className="list-inline-item"><a href="#"><FontAwesomeIcon icon={faTwitter} className="fab fa-fw" /></a></li> */}

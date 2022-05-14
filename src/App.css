@@ -9,9 +9,6 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
- #root {
-   height: calc(100vh - 69px);
- }
  
 :root {
   --bs-blue: #0d6efd;
@@ -4507,10 +4504,6 @@ textarea.form-control-lg {
   display: flex;
   padding-left: 0;
   list-style: none;
-}
-
-.page-content {
-  min-height: calc(100vh - 65vh);
 }
 
 .page-link {
