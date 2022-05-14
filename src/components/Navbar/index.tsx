@@ -1,16 +1,13 @@
 import React from 'react';
-import { Container, Navbar as Nb, Nav, NavDropdown } from 'react-bootstrap'
-import { faHeart, faWallet as faGithub } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import logo from '../../assets/images/logo.svg'
 
 const Navbar: React.FC = () => {
-  const links = [
-    { href: '#odiretorio', title: 'Diretório' },
-    { href: '#noticias', title: 'Notícias' },
-    { href: '#contato', title: 'Contato' },
-  ]
+  // const links = [
+  //   { href: '#odiretorio', title: 'Diretório' },
+  //   { href: '#noticias', title: 'Notícias' },
+  //   { href: '#contato', title: 'Contato' },
+  // ]
 
   return (
     <header className="header fixed-top">

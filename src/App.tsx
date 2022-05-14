@@ -1,14 +1,14 @@
 import React from 'react';
-import { faHeart, faEnvelope } from '@fortawesome/free-solid-svg-icons'
-import { faInstagram, faGithub, faTwitter, faMailchimp, faProductHunt, faFacebook } from '@fortawesome/free-brands-svg-icons'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col } from 'react-bootstrap';
+// import { Container, Row, Col } from 'react-bootstrap';
 
 import './App.css'
 import Navbar from './components/Navbar';
-import Directorate from './components/Directorate';
-import Notices from './components/Notices';
+// import Directorate from './components/Directorate';
+// import Notices from './components/Notices';
 
 function App() {
   return (
@@ -33,7 +33,7 @@ function App() {
           <div className="docs-overview py-5">
             <div className="row justify-content-center h-100">
               <div className="col justify-content-center align-items-center text-center h-100">
-                Ainda em desenvolvimento, acesso o site antigo <a href='https://damatematicaufrpe.wixsite.com/damatufrpe' target='_blank' className="link">aqui</a>
+                Ainda em desenvolvimento, acesso o site antigo <a href='https://damatematicaufrpe.wixsite.com/damatufrpe' target='_blank' rel='noreferrer' className="link">aqui</a>
               </div>
               {/* <div className="col-12 col-lg-4 py-3">
                 <div className="card shadow-sm">
@@ -192,12 +192,12 @@ function App() {
           <ul className="social-list list-unstyled pb-4 mb-0 mt-2">
             {/* <li className="list-inline-item"><a href="#"><FontAwesomeIcon icon={faGithub} className="fab fa-fw" /></a></li> */}
             {/* <li className="list-inline-item"><a href="#"><FontAwesomeIcon icon={faTwitter} className="fab fa-fw" /></a></li> */}
-            {/* <li className="list-inline-item"><a href="mailto:damatematicaufrpe@gmail.com" target='_blank'><FontAwesomeIcon icon={faEnvelope} className="fab fa-fw" /></a></li> */}
+            {/* <li className="list-inline-item"><a href="mailto:damatematicaufrpe@gmail.com" target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faEnvelope} className="fab fa-fw" /></a></li> */}
             {/* <li className="list-inline-item"><a href="#"><FontAwesomeIcon icon={faProductHunt} className="fab fa-fa-fw" /></a></li> */}
-            <li className="list-inline-item"><a href="https://www.facebook.com/da.matematicaufrpe" target='_blank'><FontAwesomeIcon icon={faFacebook} className="fab fa-fa-fw" /></a></li>
-            <li className="list-inline-item"><a href="https://www.instagram.com/damatematica.ufrpe/" target='_blank'><FontAwesomeIcon icon={faInstagram} className="fab fa-fw" /></a></li>
+            <li className="list-inline-item"><a href="https://www.facebook.com/da.matematicaufrpe" target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faFacebook} className="fab fa-fa-fw" /></a></li>
+            <li className="list-inline-item"><a href="https://www.instagram.com/damatematica.ufrpe/" target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faInstagram} className="fab fa-fw" /></a></li>
           </ul>
-          <small className="copyright px-2">Designed with<FontAwesomeIcon className='mx-2' icon={faHeart} style={{ color: '#fb866a' }} />by <a className="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
+          <small className="copyright px-2">Designed with<FontAwesomeIcon className='mx-2' icon={faHeart} style={{ color: '#fb866a' }} />by <a className="theme-link" href="http://themes.3rdwavemedia.com" target="_blank" rel='noreferrer'>Xiaoying Riley</a> for developers</small>
         </div>
       </footer>
     </div>
