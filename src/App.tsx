@@ -1,12 +1,12 @@
 import React from 'react';
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faCalendar, faHeart, faUserGraduate } from '@fortawesome/free-solid-svg-icons'
 import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import { Container, Row, Col } from 'react-bootstrap';
 
 import './App.css'
 import Navbar from './components/Navbar';
+import Events from './components/Events';
 // import Directorate from './components/Directorate';
 // import Notices from './components/Notices';
 
@@ -32,20 +32,20 @@ function App() {
         <div className="container">
           <div className="docs-overview py-5">
             <div className="row justify-content-center h-100">
-              <div className="col justify-content-center align-items-center text-center h-100">
+              {/* <div className="col justify-content-center align-items-center text-center h-100">
                 Ainda em desenvolvimento, acesso o site antigo <a href='https://damatematicaufrpe.wixsite.com/damatufrpe' target='_blank' rel='noreferrer' className="link">aqui</a>
-              </div>
-              {/* <div className="col-12 col-lg-4 py-3">
+              </div> */}
+              <div className="col-12 col-lg-4 py-3">
                 <div className="card shadow-sm">
                   <div className="card-body">
                     <h5 className="card-title mb-3">
                       <span className="theme-icon-holder card-icon-holder me-2">
-                        <FontAwesomeIcon icon={faGithub} className="fas fa-map-signs" />
+                        <FontAwesomeIcon icon={faUserGraduate} />
                       </span>
-                      <span className="card-title-text">Introduction</span>
+                      <span className="card-title-text">O Diretório</span>
                     </h5>
-                    <div className="card-text">
-                      Section overview goes here. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                    <div className="card-text text-justify">
+                      O Diretório Acadêmico da Licenciatura em Matemática - chapa InovAção, o terceiro na história recente do curso conta com a participação efetiva de 11 estudantes do curso, dá suporte à comunidade matemática da UFRPE. O Diretório Acadêmico é a ponte entre a coordenação do curso e dos alunos, e temos como principal função um trabalho comunicativo e integrador, no qual o diálogo é a principal fonte para solucionar problemas.
                     </div>
                     <a className="card-link-mask" href="docs-page.html#section-1"></a>
                   </div>
@@ -56,18 +56,15 @@ function App() {
                   <div className="card-body">
                     <h5 className="card-title mb-3">
                       <span className="theme-icon-holder card-icon-holder me-2">
-                        <FontAwesomeIcon icon={faGithub} className="fas fa-arrow-down" />
+                        <FontAwesomeIcon icon={faCalendar} />
                       </span>
-                      <span className="card-title-text">Installation</span>
+                      <span className="card-title-text">Eventos</span>
                     </h5>
-                    <div className="card-text">
-                      Section overview goes here. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-                    </div>
-                    <a className="card-link-mask" href="docs-page.html#section-2"></a>
+                    <Events />
                   </div>
                 </div>
               </div>
-              <div className="col-12 col-lg-4 py-3">
+              {/*<div className="col-12 col-lg-4 py-3">
                 <div className="card shadow-sm">
                   <div className="card-body">
                     <h5 className="card-title mb-3">
@@ -179,8 +176,6 @@ function App() {
                   </div>
                 </div>
               </div> */}
-            </div>
-            <div className="row-3">
             </div>
           </div>
         </div>
