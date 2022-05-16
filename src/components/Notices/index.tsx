@@ -1,19 +1,28 @@
 import React from 'react';
-import { Carousel, Container, Card, Image, CardGroup } from 'react-bootstrap'
 
 const Notices: React.FC = () => {
+  const notices = [
+    { href: '#1', title: 'Volta as aulas 2020.1', date: '12/12/9999' },
+    { href: '#2', title: 'Volta as aulas 2022.1', date: '12/12/9999' },
+    { href: '#3', title: 'Escorpião e Cobra Coral são encontrados frequentemente no CEGEN', date: '12/12/9999' },
+  ]
+
   return (
-    <CardGroup className='d-flex flex-column p-2 m-0'>
-      <Card>
-        <Card.Header>Eventos</Card.Header>
-        <Container className='my-3'>
-          <Card.Link>IV Encontro dos Estudantes de Mateática</Card.Link>
-        </Container>
-        <Container className='my-3'>
-          <Card.Link>III Encontro dos Estudantes de Mateática</Card.Link>
-        </Container>
-      </Card>
-    </CardGroup>
+    <div className="card-body">
+      {
+        notices.map(notice => (
+          <div className="card notice py-2 px-3 border-0 border-bottom mb-2">
+            <div className="row">
+              <span className='link-primary'>{notice.title}</span>
+              <a className="card-link-mask" href={notice.href}></a>
+            </div>
+            <div className="row">
+              <span className="text-muted small">{notice.date}</span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
   )
 }
 

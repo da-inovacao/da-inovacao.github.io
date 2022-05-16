@@ -1,5 +1,5 @@
 import React from 'react';
-import { faCalendar, faHeart, faUserGraduate } from '@fortawesome/free-solid-svg-icons'
+import { faCalendar, faHeart, faNewspaper, faUserGraduate } from '@fortawesome/free-solid-svg-icons'
 import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import Navbar from './components/Navbar';
 import Events from './components/Events';
+import Notices from './components/Notices';
 // import Directorate from './components/Directorate';
 // import Notices from './components/Notices';
 
@@ -64,23 +65,20 @@ function App() {
                   </div>
                 </div>
               </div>
-              {/*<div className="col-12 col-lg-4 py-3">
+              <div className="col-12 col-lg-4 py-3">
                 <div className="card shadow-sm">
                   <div className="card-body">
                     <h5 className="card-title mb-3">
                       <span className="theme-icon-holder card-icon-holder me-2">
-                        <FontAwesomeIcon icon={faGithub} className="fas fa-box fa-fw" />
+                        <FontAwesomeIcon icon={faNewspaper} className="fas fa-box fa-fw" />
                       </span>
-                      <span className="card-title-text">APIs</span>
+                      <span className="card-title-text">Notícias</span>
                     </h5>
-                    <div className="card-text">
-                      Section overview goes here. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.
-                    </div>
-                    <a className="card-link-mask" href="docs-page.html#section-3"></a>
+                    <Notices />
                   </div>
                 </div>
               </div>
-              <div className="col-12 col-lg-4 py-3">
+              {/*<div className="col-12 col-lg-4 py-3">
                 <div className="card shadow-sm">
                   <div className="card-body">
                     <h5 className="card-title mb-3">
