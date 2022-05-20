@@ -4,8 +4,8 @@ import React from 'react';
 
 const Certificates: React.FC = () => {
   const certificates = [
-    { title: 'IV Encontro dos Estudantes de Matemática', href: 'https://drive.google.com/drive/u/4/folders/1m2fRvWnwB-hWKl0XhyYiMzmrfcqnH-Q4' },
-    { title: 'III Encontro dos Estudantes de Matemática', href: 'https://drive.google.com/drive/u/4/folders/1m2fRvWnwB-hWKl0XhyYiMzmrfcqnH-Q4' },
+    { title: 'Encontro dos Estudantes de Matemática', href: 'https://drive.google.com/drive/u/4/folders/1m2fRvWnwB-hWKl0XhyYiMzmrfcqnH-Q4' },
+    { title: 'Ciclo de Palestras', href: 'https://drive.google.com/drive/u/4/folders/1m2fRvWnwB-hWKl0XhyYiMzmrfcqnH-Q4' },
   ]
 
   return (
