@@ -1,5 +1,5 @@
 import React from 'react';
-import { faCalendar, faHeart, faNewspaper, faUserGraduate } from '@fortawesome/free-solid-svg-icons'
+import { faCalendar, faHeart, faNewspaper, faScroll, faUserGraduate } from '@fortawesome/free-solid-svg-icons'
 import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,30 +8,9 @@ import './App.css'
 import Navbar from './components/Navbar';
 import Events from './components/Events';
 import Notices from './components/Notices';
+import Certificates from './components/Certificates';
 // import Directorate from './components/Directorate';
 // import Notices from './components/Notices';
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyBQ4I0zbZHQw8nQfE9kLucGrEkbGRhokVA",
-  authDomain: "siteda-c1a68.firebaseapp.com",
-  projectId: "siteda-c1a68",
-  storageBucket: "siteda-c1a68.appspot.com",
-  messagingSenderId: "720717782640",
-  appId: "1:720717782640:web:eadd3a9cae470388af1eb5",
-  measurementId: "G-QEQYRB2GBB"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
 function App() {
   return (
     <div className='w-100 h-100'>
@@ -62,14 +41,12 @@ function App() {
                   <div className="card-body">
                     <h5 className="card-title mb-3">
                       <span className="theme-icon-holder card-icon-holder me-2">
-                        <FontAwesomeIcon icon={faUserGraduate} />
+                        <FontAwesomeIcon icon={faScroll} />
                       </span>
-                      <span className="card-title-text">O Diretório</span>
+                      <span className="card-title-text">Certificados</span>
                     </h5>
-                    <div className="card-text text-justify">
-                      O Diretório Acadêmico da Licenciatura em Matemática - chapa InovAção, o terceiro na história recente do curso conta com a participação efetiva de 11 estudantes do curso, dá suporte à comunidade matemática da UFRPE. O Diretório Acadêmico é a ponte entre a coordenação do curso e dos alunos, e temos como principal função um trabalho comunicativo e integrador, no qual o diálogo é a principal fonte para solucionar problemas.
-                    </div>
-                    <a className="card-link-mask" href="docs-page.html#section-1"></a>
+                    <Certificates />
+                    {/* <a className="card-link-mask" href="docs-page.html#section-1"></a> */}
                   </div>
                 </div>
               </div>

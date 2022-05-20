@@ -15,21 +15,23 @@ const Notices: React.FC = () => {
   }, [])
 
   return (
-    <div className="card-body">
-      {
-        notices.map((notice: any) => (
-          <div className="card notice py-2 px-3 border-0 border-bottom mb-2">
-            <div className="row">
-              <span className='link-primary'>{notice.title}</span>
-              <a className="card-link-mask" target='_blank' rel='noreferrer' href={notice.href}></a>
+    <>
+      <div className="card-body">
+        {
+          notices.map((notice: any, i: number) => (
+            <div className="card notice py-2 px-3 border-0 border-bottom mb-2" key={i}>
+              <div className="row">
+                <span className='link-primary'>{notice.title}</span>
+                <a className="card-link-mask" target='_blank' rel='noreferrer' href={notice.href}></a>
+              </div>
+              <div className="row">
+                <span className="text-muted small">{notice.date}</span>
+              </div>
             </div>
-            <div className="row">
-              <span className="text-muted small">{notice.date}</span>
-            </div>
-          </div>
-        ))
-      }
-    </div>
+          ))
+        }
+      </div>
+    </>
   )
 }
 

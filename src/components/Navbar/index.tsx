@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
             <div className="site-logo">
               <a className="navbar-brand" href="index.html">
                 <img className="logo-icon me-2" src={logo} alt="logo" />
-                <span className="logo-text"><span className="text-alt">Inova<span className='logo-text'>Ação</span></span></span>
+                <span className="logo-text"><span className="text-alt">Inov<span className='logo-text'>Ação</span></span></span>
               </a>
             </div>
           </div>
