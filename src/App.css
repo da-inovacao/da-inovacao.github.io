@@ -11104,6 +11104,11 @@ a.text-link:hover {
 }
 
 /* Extra */
+.d-col {
+  display: flex;
+  flex-direction: column;
+}
+
 .main-search-box {
   max-width: 600px;
 }
