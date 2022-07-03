@@ -11,7 +11,7 @@ const Certificates: React.FC = () => {
   return (
     <div className="card-body">
       {certificates.map(certificate => (
-        <div className="link-primary mb-3">
+        <div className="link-primary mb-3" key={certificate.title}>
           <a className="link-primary" style={{ textDecoration: 'none' }} target="_blank" rel='noreferrer' href={certificate.href}>{certificate.title}</a>
         </div>
       ))}
