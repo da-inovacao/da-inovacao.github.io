@@ -14,3 +14,11 @@ declare type Presentation = {
   abstract: string
   banner: string
 }
+
+declare type _Notices = {
+  date: string | Date
+  href: string
+  title: string
+}
+
+type NoticesFirebase = { [key: string | number]: _Notices }

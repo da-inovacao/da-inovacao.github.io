@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 import { HashRouter as Router, Routes, Route, Link } from "react-router-dom"
+
+import reportWebVitals from '~/reportWebVitals';
+import App from '~/App';
+import Login from '~/pages/Login';
+import Dashboard from '~/pages/Dashboard';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -13,10 +16,8 @@ root.render(
   <Router basename='/' >
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/about" element={
-        (<div>
-          <p>about</p>
-        </div>)} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/dashboard" element={<Dashboard />} />
     </Routes>
   </Router>
   // </React.StrictMode>
