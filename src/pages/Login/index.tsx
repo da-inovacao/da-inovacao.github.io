@@ -1,33 +1,67 @@
-import React from 'react';
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import logo from '~/assets/images/logo.svg'
+import api from '~/services/Api'
+import {
+  Button,
+  Container,
+  Content,
+  ErrorText,
+  Img,
+  ImgContainer,
+  ImgText,
+  Input,
+  Label,
+} from './styles'
 
 const Login: React.FC = () => {
+  const [login, setLogin] = useState('')
+  const [password, setPassword] = useState('')
+  const [isLogging, setIsLogging] = useState(false)
+  const [error, setError] = useState('')
+
+  const navigate = useNavigate()
+
+  const handleLogin = async () => {
+    setIsLogging(true)
+    const { status, data, ...res } = await api.post(
+      '/login',
+      { login, password },
+      { validateStatus: () => true, withCredentials: true }
+    )
+
+    console.log(res)
+
+    if (status.toString().startsWith('2')) {
+      setIsLogging(false)
+      navigate('../dashboard')
+    } else {
+      setIsLogging(false)
+      setError(data.message)
+    }
+  }
+
   return (
-    <div className="page-content">
-      <div className="col d-flex justify-content-center align-center">
-        <form className='col-9 col-md-3 center' action="">
-          <div className="row mb-4">
-            <div className="col">
-              <img className="logo-icon me-2" src={logo} alt="logo" />
-              <span className="logo-text"><span className="text-alt">Inov<span className='logo-text'>Ação</span></span></span>
-            </div>
-          </div>
-          <div className="form-group mb-3">
-            <label htmlFor="inputEmail">Email</label>
-            <input type="email" className='form-control' id='inputEmail' />
-          </div>
-          <div className="form-group mb-3">
-            <label htmlFor="inputPassword">Senha</label>
-            <input type="password" className='form-control' id='inputPassword' />
-          </div>
-          <div className="d-flex justify-content-center">
-            <button type="submit" className='btn btn-primary'>Entrar</button>
-          </div>
-        </form>
-      </div>
-    </div>
+    <Container>
+      <Content>
+        <ImgContainer>
+          <Img src={logo} alt='logo' />
+          <ImgText>
+            Inov<span style={{ fontWeight: 500 }}>Ação</span>
+          </ImgText>
+        </ImgContainer>
+        {error && <ErrorText>{error}</ErrorText>}
+        <Label>Login</Label>
+        <Input type='text' value={login} onChange={(e) => setLogin(e.target.value)} />
+        <Label>Senha</Label>
+        <Input type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
+        <Button onClick={handleLogin} disabled={isLogging == true}>
+          Entrar
+        </Button>
+      </Content>
+    </Container>
   )
 }
 
-export default Login;
+export default Login

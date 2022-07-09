@@ -1,9 +1,9 @@
 declare type TEvent = {
-  text: string
+  id: string
   title: string
-  date: string
-  banner: string
   presentations: Presentation[]
+  created_at: string
+  updated_at: string
 }
 
 declare type Presentation = {
@@ -16,6 +16,7 @@ declare type Presentation = {
 }
 
 declare type _Notices = {
+  id: string
   date: string | Date
   href: string
   title: string

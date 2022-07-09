@@ -4,46 +4,42 @@ import Navbar from '~/components/Navbar'
 import { Container, Panel, PanelContent } from './styles'
 import Notice from './components/Notice'
 
-import Firebase from '~/services/Api'
+import api from '~/services/Api'
 
 const Dashboard: React.FC = () => {
-  const [notices, setNotice] = useState<_Notices[]>()
-
-  const sanitizeNotices = (data: NoticesFirebase) => {
-    const noticesKeys = Object.keys(data)
-    const sanitizedNotices: _Notices[] = []
-
-    for (let key of noticesKeys) {
-      const _notice = data[key]
-      sanitizedNotices.push(Object.assign(_notice, { id: key }))
-    }
-
-    return sanitizedNotices
-  }
+  const [notices, setNotices] = useState<_Notices[]>([])
+  const [events, setEvents] = useState([])
 
   useEffect(() => {
     const fetchNotices = async () => {
-      const { data } = await Firebase.get<NoticesFirebase>('/notices.json')
+      const { data } = await api.get('/notices')
 
-      setNotice(sanitizeNotices(data))
+      setNotices(data)
+    }
+    const fetchEvents = async () => {
+      const { data } = await api.get('/events')
+
+      setEvents(data)
     }
 
     fetchNotices()
+    fetchEvents()
   }, [])
 
   return (
     <Container>
       <Navbar />
       <Panel>
-        <text className='text-primary'>Notícias</text>
+        <span className='text-primary'>Notícias</span>
         <PanelContent>
           {notices?.map((notice) => (
-            <Notice notice={notice} />
+            <Notice key={notice.id} notice={notice} />
           ))}
         </PanelContent>
       </Panel>
       <Panel>
-        <text>Eventos</text>
+        <span className='text-primary'>Eventos</span>
+        <PanelContent>{events?.map((event) => JSON.stringify(event))}</PanelContent>
       </Panel>
     </Container>
   )
