@@ -5,21 +5,26 @@ import { Container, Panel, PanelContent } from './styles'
 import Notice from './components/Notice'
 
 import api from '~/services/Api'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '~/store'
+import { setEvents, setNotices } from '~/reducers'
 
 const Dashboard: React.FC = () => {
-  const [notices, setNotices] = useState<_Notices[]>([])
-  const [events, setEvents] = useState([])
+  const notices = useSelector<RootState, _Notices[]>(({ mainState }) => mainState.notices)
+  const events = useSelector<RootState, TEvent[]>(({ mainState }) => mainState.events)
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
     const fetchNotices = async () => {
       const { data } = await api.get('/notices')
 
-      setNotices(data)
+      dispatch(setNotices(data))
     }
     const fetchEvents = async () => {
       const { data } = await api.get('/events')
 
-      setEvents(data)
+      dispatch(setEvents(data))
     }
 
     fetchNotices()

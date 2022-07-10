@@ -5,14 +5,18 @@ import { Button, Col, Container, ContainerButton, DateText, Title } from './styl
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import api from '~/services/Api'
 import { useAlert } from 'react-alert'
+import { useDispatch } from 'react-redux'
+import { removeNotice } from '~/reducers'
 
 const Notice: React.FC<Props> = ({ notice }) => {
   const alert = useAlert()
+  const dispatch = useDispatch()
 
   const handleRemove = async () => {
     const { data, status } = await api.delete(`/notices/${notice.id}`, { withCredentials: true })
 
     if (status.toString().startsWith('2')) {
+      dispatch(removeNotice(notice))
       alert.success('Notícia removida')
     } else {
       alert.error(data.message)
