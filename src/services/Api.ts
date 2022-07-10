@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'https://siteda-c1a68-default-rtdb.firebaseio.com'
+  baseURL: 'http://192.168.0.114:3333'
 })
 
 export default api

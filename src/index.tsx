@@ -7,19 +7,23 @@ import reportWebVitals from '~/reportWebVitals';
 import App from '~/App';
 import Login from '~/pages/Login';
 import Dashboard from '~/pages/Dashboard';
+import { Provider as AlertProvider } from 'react-alert';
+import AlertTemplate from 'react-alert-template-basic';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   // <React.StrictMode>
-  <Router basename='/' >
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-    </Routes>
-  </Router>
+  <AlertProvider template={AlertTemplate} timeout={3000} offset='2rem' >
+    <Router basename='/' >
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </Router>
+  </AlertProvider>
   // </React.StrictMode>
 );
 
