@@ -30,3 +30,7 @@ export const PanelContent = styled.div`
   flex-direction: column;
   margin-top: 1rem;
 `
+
+export const InsertContainer = styled.div`
+
+`

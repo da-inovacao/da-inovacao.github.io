@@ -1,14 +1,13 @@
-import React from 'react';
-import { faCalendar, faHeart, faNewspaper, faScroll, faUserGraduate } from '@fortawesome/free-solid-svg-icons'
-import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
+import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faCalendar, faHeart, faNewspaper, faScroll } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import './App.css'
-import Navbar from './components/Navbar';
-import Events from './components/Events';
-import Notices from './components/Notices';
+import './App.css';
 import Certificates from './components/Certificates';
+import Events from './components/Events';
+import Navbar from './components/Navbar';
+import Notices from './components/Notices';
 // import Directorate from './components/Directorate';
 // import Notices from './components/Notices';
 function App() {
