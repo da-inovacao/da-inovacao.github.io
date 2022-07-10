@@ -4,23 +4,32 @@ import { faEdit, faRemove } from '@fortawesome/free-solid-svg-icons'
 import { Button, Col, Container, ContainerButton, DateText, Title } from './styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import api from '~/services/Api'
+import { useAlert } from 'react-alert'
 
 const Notice: React.FC<Props> = ({ notice }) => {
+  const alert = useAlert()
+
   const handleRemove = async () => {
-    const { status } = await api.delete(`/notices/${notice.id}`, { withCredentials: true })
+    const { data, status } = await api.delete(`/notices/${notice.id}`, { withCredentials: true })
 
     if (status.toString().startsWith('2')) {
-      console.log('ceerto')
+      alert.success('Notícia removida')
     } else {
-      console.log('erro')
+      alert.error(data.message)
     }
+  }
+
+  const formatDate = (dateStr: string) => {
+    const date = new Date(dateStr)
+
+    return date.toLocaleString('pt-BR', { dateStyle: 'medium' })
   }
 
   return (
     <Container>
       <Col>
         <Title>{notice.title}</Title>
-        <DateText>{String(notice.date)}</DateText>
+        <DateText>{formatDate(notice.created_at)}</DateText>
       </Col>
       <ContainerButton>
         <Button onClick={handleRemove}>

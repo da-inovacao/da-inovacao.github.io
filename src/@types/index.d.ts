@@ -18,6 +18,7 @@ declare type Presentation = {
 declare type _Notices = {
   id: string
   date: string | Date
+  created_at: string
   href: string
   title: string
 }

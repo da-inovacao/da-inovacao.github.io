@@ -15,7 +15,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   // <React.StrictMode>
-  <AlertProvider template={AlertTemplate} timeout={3000} offset='2rem' >
+  <AlertProvider template={AlertTemplate} timeout={3000} offset='2rem' position='bottom center' >
     <Router basename='/' >
       <Routes>
         <Route path="/" element={<App />} />
