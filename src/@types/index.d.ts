@@ -1,6 +1,7 @@
 declare type TEvent = {
   id: string
   title: string
+  abstract: string
   presentations: Presentation[]
   created_at: string
   updated_at: string

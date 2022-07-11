@@ -24,10 +24,15 @@ const Edit: React.FC<Props> = ({ eventId, modalExit }) => {
 
   const onTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)
 
-  const onAbstractChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => setAbstract(e.target.value)
+  const onAbstractChange = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
+    setAbstract(e.target.value)
 
   const handleSave = async () => {
-    const { data, status } = await api.put(`/events/${eventId}`, { title, presentations: presents })
+    const { data, status } = await api.put(`/events/${eventId}`, {
+      title,
+      abstract,
+      presentations: presents,
+    })
 
     if (status.toString().startsWith('2')) {
       const newEvents = events.map((event) => (event.id === eventId ? data : event))
@@ -56,7 +61,7 @@ const Edit: React.FC<Props> = ({ eventId, modalExit }) => {
       if (status.toString().startsWith('2')) {
         setEvent(data)
         setTitle(data.title)
-        setAbstract('abstract')
+        setAbstract(data.abstract)
         setPresents(data.presentations)
       }
     }
