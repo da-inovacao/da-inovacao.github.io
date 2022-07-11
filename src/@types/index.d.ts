@@ -7,6 +7,7 @@ declare type TEvent = {
 }
 
 declare type Presentation = {
+  id: string
   date: string
   title: string
   presenters: string[]

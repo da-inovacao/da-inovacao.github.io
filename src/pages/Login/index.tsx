@@ -28,7 +28,7 @@ const Login: React.FC = () => {
     const { status, data, ...res } = await api.post(
       '/login',
       { login, password },
-      { validateStatus: () => true, withCredentials: true }
+      { validateStatus: () => true }
     )
 
     console.log(res)

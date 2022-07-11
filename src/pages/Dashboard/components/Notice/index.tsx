@@ -47,7 +47,7 @@ const Notice: React.FC = () => {
   const dispatch = useDispatch()
 
   const handleRemove = async (notice: _Notices) => {
-    const { data, status } = await api.delete(`/notices/${notice.id}`, { withCredentials: true })
+    const { data, status } = await api.delete(`/notices/${notice.id}`)
 
     if (status.toString().startsWith('2')) {
       dispatch(removeNotice(notice))
@@ -64,11 +64,7 @@ const Notice: React.FC = () => {
   }
 
   const handleInsertNotice = async () => {
-    const { data, status } = await api.post(
-      '/notices',
-      { title, href: link },
-      { withCredentials: true }
-    )
+    const { data, status } = await api.post('/notices', { title, href: link })
 
     if (status.toString().startsWith('2')) {
       dispatch(setNotices([data, ...notices]))

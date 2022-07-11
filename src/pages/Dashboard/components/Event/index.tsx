@@ -1,18 +1,41 @@
-import React, { useEffect } from 'react'
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import Modal from 'react-modal'
+
 import { setEvents } from '~/reducers'
 import api from '~/services/Api'
 import { RootState } from '~/store'
+import Edit from './components/Edit'
 
-import { Container, EventContainer, Title } from './styles'
+import { Button, Col, Container, DateText, EventContainer, Title } from './styles'
+
+Modal.setAppElement('body')
+
+const customStyle = {
+  content: {},
+  overlay: {
+    zIndex: 4000,
+  },
+}
 
 const Event: React.FC = () => {
   const events = useSelector<RootState, TEvent[]>(({ mainState }) => mainState.events)
+  const [isEditting, setIsEditting] = useState(false)
+  const [eventToEdit, setEventToEdit] = useState<TEvent | undefined>()
 
   const dispatch = useDispatch()
 
   const formatDate = (dateStr: string) =>
-    new Date(dateStr).toLocaleString('pt-BR', { dateStyle: 'short' })
+    new Date(dateStr).toLocaleString('pt-BR', { dateStyle: 'medium' })
+
+  const handleExit = () => setIsEditting(false)
+
+  const handleEdit = (event: TEvent) => {
+    setEventToEdit(event)
+    setIsEditting(true)
+  }
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -28,10 +51,18 @@ const Event: React.FC = () => {
     <Container>
       {events?.map((event) => (
         <EventContainer key={event.id}>
-          <Title>{event.title}</Title>
-          <Title>{formatDate(event.created_at)}</Title>
+          <Col>
+            <Title>{event.title}</Title>
+            <DateText>{formatDate(event.created_at)}</DateText>
+          </Col>
+          <Button onClick={() => handleEdit(event)}>
+            <FontAwesomeIcon icon={faChevronRight} color='#0591e7' />
+          </Button>
         </EventContainer>
       ))}
+      <Modal isOpen={isEditting} style={customStyle} onRequestClose={handleExit}>
+        <Edit eventId={eventToEdit?.id} modalExit={handleExit} />
+      </Modal>
     </Container>
   )
 }
