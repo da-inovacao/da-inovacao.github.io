@@ -10,7 +10,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <Container>
-      <Navbar />
+      <Navbar showLogin={false}/>
       <Panel>
         <span className='text-primary'>Notícias</span>
         <PanelContent>
