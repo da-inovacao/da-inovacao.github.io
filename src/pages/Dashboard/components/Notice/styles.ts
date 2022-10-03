@@ -53,3 +53,13 @@ export const InsertContainer = styled.div`
 export const Input = styled.input``
 
 export const Label = styled.label``
+
+export const AddButton = styled.button`
+  max-height: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 0.2rem;
+  padding: 0 1.2rem 0 1.2rem;
+`

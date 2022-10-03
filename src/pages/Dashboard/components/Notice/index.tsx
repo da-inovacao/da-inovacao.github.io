@@ -13,6 +13,7 @@ import {
   InsertContainer,
   Input,
   Label,
+  AddButton,
 } from './styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import api from '~/services/Api'
@@ -85,7 +86,10 @@ const Notice: React.FC = () => {
 
   return (
     <Container>
-      <button onClick={() => setModalOpen(true)}>+</button>
+      <div className='d-flex align-items-center col mb-2'>
+        <span className='text-primary flex-grow-1'>Notícias</span>
+        <AddButton className='btn-primary' onClick={() => setModalOpen(true)}>+</AddButton>
+      </div>
       {notices.map((notice) => (
         <NoticeContainer key={notice.id}>
           <Col>

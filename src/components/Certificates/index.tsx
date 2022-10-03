@@ -6,6 +6,7 @@ const Certificates: React.FC = () => {
   const certificates = [
     { title: 'Encontro dos Estudantes de Matemática', href: 'https://drive.google.com/drive/folders/1d5MjXM4b67VqpYsyX9RcQ_XaPxS_2qVh?usp=sharing' },
     { title: 'Ciclo de Palestras', href: 'https://drive.google.com/drive/folders/12XhuyGR1B9nT422gWEaVYZxZgnU84zry?usp=sharing' },
+    { title: 'Recepção', href: 'https://drive.google.com/drive/folders/13fAuaQ8cIRccZd75IjkKZ0-TMPteAz9M?usp=sharing' },
   ]
 
   return (

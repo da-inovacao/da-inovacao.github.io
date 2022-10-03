@@ -12,7 +12,6 @@ const Dashboard: React.FC = () => {
     <Container>
       <Navbar showLogin={false}/>
       <Panel>
-        <span className='text-primary'>Notícias</span>
         <PanelContent>
           <Notice />
         </PanelContent>
