@@ -25,6 +25,13 @@ declare type _Notices = {
   title: string
 }
 
+declare type _Certificates = {
+  id: string
+  created_at: string
+  href: string
+  title: string
+}
+
 type NoticesFirebase = { [key: string | number]: _Notices }
 
 declare module 'react-alert-template-basic';

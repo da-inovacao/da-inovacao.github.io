@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '~/components/Navbar'
 
 import Event from './components/Event'
+import Certificates from './components/Certificates'
 import Notice from './components/Notice'
 import { Container, Panel, PanelContent } from './styles'
 
@@ -13,11 +14,15 @@ const Dashboard: React.FC = () => {
       <Navbar showLogin={false}/>
       <Panel>
         <PanelContent>
+          <Certificates />
+        </PanelContent>
+      </Panel>
+      <Panel>
+        <PanelContent>
           <Notice />
         </PanelContent>
       </Panel>
       <Panel>
-        <span className='text-primary'>Eventos</span>
         <PanelContent>
           <Event />
         </PanelContent>
