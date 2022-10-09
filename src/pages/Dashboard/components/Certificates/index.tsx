@@ -19,7 +19,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import api from '~/services/Api'
 import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
-import { setCertificates } from '~/reducers'
+import { setCertificates, removeCertificate } from '~/reducers'
 import { RootState } from '~/store'
 
 Modal.setAppElement('body')
@@ -47,14 +47,14 @@ const Certificates: React.FC = () => {
   const certificates = useSelector<RootState, _Certificates[]>(({ mainState }) => mainState.certificates)
   const dispatch = useDispatch()
 
-  const handleRemove = async (Certificates: _Certificates) => {
-    // const { data, status } = await api.delete(`/Certificates/${Certificates.id}`)
-    // if (status.toString().startsWith('2')) {
-    //   dispatch(removeCertificates(Certificates))
-    //   alert.success('Notícia removida')
-    // } else {
-    //   alert.error(data.message)
-    // }
+  const handleRemove = async (certificate: _Certificates) => {
+    const { data, status } = await api.delete(`/certificates/${certificate.id}`)
+    if (status.toString().startsWith('2')) {
+      dispatch(removeCertificate(certificate))
+      alert.success('Certificado removido')
+    } else {
+      alert.error(data.message)
+    }
   }
 
   const handleInsertCertificates = async () => {
@@ -91,7 +91,7 @@ const Certificates: React.FC = () => {
             <Title>{certificate.title}</Title>
           </Col>
           <ContainerButton>
-            <Button onClick={() => {}}>
+            <Button onClick={() => handleRemove(certificate)}>
               <FontAwesomeIcon icon={faRemove} color='#f00' />
             </Button>
           </ContainerButton>

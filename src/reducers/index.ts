@@ -22,10 +22,13 @@ export const mainSlice = createSlice({
     setCertificates: (state, action: PayloadAction<_Certificates[]>) => {
       state.certificates = action.payload
     },
+    removeCertificate: (state, action: PayloadAction<_Certificates>) => {
+      state.certificates = state.certificates.filter((cert) => cert.id !== action.payload.id)
+    },
   },
 })
 
-export const { setEvents, setNotices, removeNotice, setCertificates } = mainSlice.actions
+export const { setEvents, setNotices, removeNotice, setCertificates, removeCertificate } = mainSlice.actions
 export default mainSlice.reducer
 
 type MainState = {
