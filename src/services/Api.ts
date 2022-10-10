@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = true ? 'https://backend-damat.herokuapp.com/' : 'http://10.2.133.47:3333'
+const url = 'https://siteda-c1a68.rj.r.appspot.com/'
 
 const api = axios.create({
   baseURL: url,
