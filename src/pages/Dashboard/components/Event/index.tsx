@@ -9,7 +9,7 @@ import api from '~/services/Api'
 import { RootState } from '~/store'
 import Edit from './components/Edit'
 
-import { Button, Col, Container, DateText, EventContainer, Title } from './styles'
+import { AddButton, Button, Col, Container, DateText, EventContainer, Title } from './styles'
 
 Modal.setAppElement('body')
 
@@ -22,15 +22,17 @@ const customStyle = {
 
 const Event: React.FC = () => {
   const events = useSelector<RootState, TEvent[]>(({ mainState }) => mainState.events)
+  const [modalOpen, setModalOpen] = useState(false)
   const [isEditting, setIsEditting] = useState(false)
   const [eventToEdit, setEventToEdit] = useState<TEvent | undefined>()
 
   const dispatch = useDispatch()
 
-  const formatDate = (dateStr: string) =>
-    new Date(dateStr).toLocaleString('pt-BR', { dateStyle: 'medium' })
+  const formatDate = (dateStr: string) => new Date(dateStr).toLocaleString('pt-BR', { dateStyle: 'medium' })
 
   const handleExit = () => setIsEditting(false)
+
+  const handleExitAddModal = () => setModalOpen(false)
 
   const handleEdit = (event: TEvent) => {
     setEventToEdit(event)
@@ -49,6 +51,10 @@ const Event: React.FC = () => {
 
   return (
     <Container>
+      <div className='d-flex align-items-center col mb-2'>
+        <span className='text-primary flex-grow-1'>Eventos</span>
+        <AddButton className='btn-primary' onClick={() => setModalOpen(true)}>+</AddButton>
+      </div>
       {events?.map((event) => (
         <EventContainer key={event.id}>
           <Col>
@@ -62,6 +68,9 @@ const Event: React.FC = () => {
       ))}
       <Modal isOpen={isEditting} style={customStyle} onRequestClose={handleExit}>
         <Edit eventId={eventToEdit?.id} modalExit={handleExit} />
+      </Modal>
+      <Modal isOpen={modalOpen} style={customStyle} onRequestClose={handleExitAddModal}>
+        <Edit eventId={eventToEdit?.id} modalExit={handleExitAddModal} />
       </Modal>
     </Container>
   )

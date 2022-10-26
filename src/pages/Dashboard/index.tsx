@@ -11,7 +11,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <Container>
-      <Navbar showLogin={false}/>
+      <Navbar showLogin={false} showAddUser={true} />
       <Panel>
         <PanelContent>
           <Certificates />

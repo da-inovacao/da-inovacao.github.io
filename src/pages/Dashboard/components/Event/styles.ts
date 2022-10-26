@@ -27,3 +27,13 @@ export const Button = styled.button`
   background: none;
   border: none;
 `
+
+export const AddButton = styled.button`
+  max-height: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 0.2rem;
+  padding: 0 1.2rem 0 1.2rem;
+`

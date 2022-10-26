@@ -1,3 +1,5 @@
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
 import { Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
@@ -12,6 +14,7 @@ const Edit: React.FC<Props> = ({ eventId, modalExit }) => {
   const [title, setTitle] = useState('')
   const [abstract, setAbstract] = useState('')
   const [presents, setPresents] = useState<Presentation[]>([])
+  const [presTitle, setPresTitle] = useState('')
 
   const dispatch = useDispatch()
   const events = useSelector<RootState, TEvent[]>(({ mainState }) => mainState.events)
@@ -24,8 +27,9 @@ const Edit: React.FC<Props> = ({ eventId, modalExit }) => {
 
   const onTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)
 
-  const onAbstractChange = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
-    setAbstract(e.target.value)
+  const onAbstractChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => setAbstract(e.target.value)
+
+  const onPresTitleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => setPresTitle(e.target.value)
 
   const handleSave = async () => {
     const { data, status } = await api.put(`/events/${eventId}`, {
@@ -40,6 +44,11 @@ const Edit: React.FC<Props> = ({ eventId, modalExit }) => {
       dispatch(setEvents([...newEvents]))
       modalExit()
     }
+  }
+
+  const handleNewPres = () => {
+    const pres = { title: presTitle } as Presentation
+    setPresents([...presents, pres])
   }
 
   const editPresentation = (
@@ -74,22 +83,30 @@ const Edit: React.FC<Props> = ({ eventId, modalExit }) => {
       <Content>
         <Input value={title} onChange={onTitleChange} />
         <DateText>
-          Criado em {formatDate(event?.created_at)} | Última edição em{' '}
-          {formatDate(event?.updated_at)}
+          Criado em {formatDate(event?.created_at)} | Última edição em {formatDate(event?.updated_at)}
         </DateText>
         <Input value={abstract} as='textarea' onChange={onAbstractChange} />
         <Presentation>
           {presents.map((pres, i) => (
             <Presentation.Item eventKey={String(i)} key={i}>
               <Presentation.Header>
-                <Input
-                  value={pres.title}
-                  onChange={(e: any) => editPresentation(e, pres, 'title')}
-                />
+                <Input value={pres.title} onChange={(e: any) => editPresentation(e, pres, 'title')} />
               </Presentation.Header>
               <Presentation.Body>{pres.date}</Presentation.Body>
             </Presentation.Item>
           ))}
+          <Presentation.Item eventKey={String(presents.length + 1)}>
+            <Presentation.Header>
+              <FontAwesomeIcon icon={faPlusCircle} color='#0591e7' style={{ marginRight: '1rem' }} />
+              Nova apresentação
+            </Presentation.Header>
+            <Presentation.Body>
+              <Input value={presTitle} onChange={onPresTitleChange} />
+              <Button size='sm' onClick={handleNewPres} variant='outline-primary'>
+                Adicionar apresentação
+              </Button>
+            </Presentation.Body>
+          </Presentation.Item>
         </Presentation>
       </Content>
       <ButtonContainer>
