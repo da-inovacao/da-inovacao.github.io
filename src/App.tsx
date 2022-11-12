@@ -42,7 +42,7 @@ function App() {
                       <span className="theme-icon-holder card-icon-holder me-2">
                         <FontAwesomeIcon icon={faScroll} />
                       </span>
-                      <span className="card-title-text">Certificados</span>
+                      <span className="card-title-text">Links úteis</span>
                     </h5>
                     <Certificates />
                     {/* <a className="card-link-mask" href="docs-page.html#section-1"></a> */}
